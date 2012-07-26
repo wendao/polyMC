@@ -1,12 +1,12 @@
-#compile debug mode
-       scons
+#Compile debug mode
+    scons
 
-#compile release mode
-       scons mode=release
+#Compile release mode
+    scons mode=release
 
-#clean debug mode
-       scons -c
+#Clean debug mode
+    scons -c
 
-#clean release mode
-       scons -c mode=release
+#Clean release mode
+    scons -c mode=release
 
