@@ -1,0 +1,9 @@
+#int
+I = 3
+ #float
+F	=1.1123
+	#double
+  D=	1234.123
+c0 = 1.0
+S=whwhwhahahahdd 9
+;hoho
