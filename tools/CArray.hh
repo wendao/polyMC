@@ -1,4 +1,4 @@
-/*i forgot where this piece of code come from*/
+/*i forgot where this piece of code came from*/
 
 #ifndef _CARRAY_H
 #define _CARRAY_H
