@@ -1,12 +1,17 @@
-#Compile debug mode
+
+** PolyMC ** a simple Monte Carlo code for multiple models
+
+# Compiling and Installing
+==============================
+## Compile debug mode
     scons
 
-#Compile release mode
+## Compile release mode
     scons mode=release
 
-#Clean debug mode
+## Clean debug mode
     scons -c
 
-#Clean release mode
+## Clean release mode
     scons -c mode=release
 
