@@ -13,12 +13,30 @@ enum Ctype { internal, external };
 
 template <class T>
 class CArray1 {
-private:
-    int n;
-    T* p;
-    Ctype t;
-
 public:
+	CArray1() :p(NULL),n(0),t(external) {
+		//do nothing
+	}
+
+    CArray1( int nelem ) :CArray1() {
+		alloc(nelem);
+    }
+
+    CArray1( CArray1& array ) :CArray1() {
+        alloc(array.n);
+        memcpy( p, array.p, n*sizeof(T) );
+    }
+
+    CArray1( T* space, int nelem ) :CArray1() {
+        p = space;
+        n = nelem;
+        t = external;
+    }
+
+    ~CArray1() {
+        recyc();
+    }
+
 	void recyc() {
 		if (p!=NULL) {
 			if (internal==t) {
@@ -27,35 +45,13 @@ public:
 			p = NULL;
 		}
 	}
+
 	void alloc( int nelem ) {
 		recyc();
 		p = new T[nelem];
 		n = nelem;
 		t = internal;
 	}
-
-	CArray1() :p(NULL),n(0),t(external) {
-		//do nothing
-	}
-
-    CArray1( int nelem ) :p(NULL) {
-		alloc(nelem);
-    }
-
-    CArray1( CArray1& array ) :p(NULL) {
-        alloc(array.n);
-        memcpy( p, array.p, n*sizeof(T) );
-    }
-
-    CArray1( T* space, int nelem ) :p(NULL) {
-        p = space;
-        n = nelem;
-        t =external;
-    }
-
-    ~CArray1() {
-        recyc();
-    }
 
     T& operator[] (int ndx) {
         return *(p+ndx);
@@ -67,13 +63,18 @@ public:
         }
         return *this;
     }
+
+private:
+    T* p;
+    int n;
+    Ctype t;
 };
 
 template < class T >
 class CArray2 {
 private:
-    int nx,ny;
     T** p;
+    int nx,ny;
     Ctype t;
 
 public:
@@ -99,21 +100,21 @@ public:
         ny = y;
         t = internal;
 	}
-	
+
 	CArray2() :p(NULL),nx(0),ny(0),t(external){}
 
-    CArray2( int x, int y ) :p(NULL) {
+    CArray2( int x, int y ) :CArray2() {
 		alloc(x,y);
     }
 
-    CArray2( T** space, int x, int y ) :p(NULL) {
+    CArray2( T** space, int x, int y ) :CArray2() {
         p = space;
         nx = x;
         ny = y;
         t = external;
     }
 
-    CArray2( CArray2& array ) :p(NULL) {
+    CArray2( CArray2& array ) :CArray2() {
 		alloc(array.nx,array.ny);
         memcpy( p[0], array.p[0], nx*ny*sizeof(T) );
     }
@@ -171,7 +172,7 @@ public:
         nz = z;
         t = internal;
 	}
-	
+
 	CArray3() :p(NULL),nx(0),ny(0),nz(0),t(external){}
 
     CArray3( int x, int y, int z ) :p(NULL) {

@@ -162,7 +162,7 @@ bool mychomp( char *str )
 	char temp[MAX_LINE];
 	int len = strlen(str);
 	int i;
-	int ndx = 0;
+	//int ndx = 0;
 	for (i=0;i<len;i++)
 	{
 		if( str[i]!=' ' && str[i]!='\t' && str[i]!='\n' && str[i]!='=')break;

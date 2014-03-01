@@ -1,5 +1,5 @@
 #include <sampler/canonical.hh>
-#include <tools/ext_math.hh>
+#include <tools/math.hh>
 #include <iostream>
 #include <cmath>
 #include <algorithm>
@@ -11,12 +11,12 @@ namespace sampler
 
 void Canonical::sample(model::Model *mod)
 {
-	Real de=mod->move();
-	Real prob=0;
+	Real de = mod->move();
+	Real prob = 0;
 	if (de<0) prob = 1.0;
-	else prob = std::exp( std::max(Real(-40.0),-de/temperature_) );
-	
-	if (RG.uniform()<prob)
+	else prob = std::exp( std::max( Real(-40.0), -de/temperature_ ) );
+
+	if ( RG.uniform()<prob )
 	{
 		//accept
 		mod->accept();
@@ -28,7 +28,7 @@ void Canonical::sample(model::Model *mod)
 	}
 }
 
-void Canonical::set_temperature(Real t){temperature_=t;}
+void Canonical::set_temperature(Real t){ temperature_ = t; }
 
 void Canonical::stat(model::Model *mod)
 {

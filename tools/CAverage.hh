@@ -31,10 +31,10 @@ private:
 public:
 	CAverage(int type):typ(type)
 	{
-		if(type>0)database.reserve(type);
+		if (type>0) database.reserve(type);
 		num = 0;
 		pos = 0;
-		std::memset(&sum,0,sizeof(T));
+		std::memset( &sum, 0, sizeof(T) );
 	}
 
 	void addData( T data )
@@ -46,7 +46,7 @@ public:
 			sum += data;
 			break;
 		default:
-			if (num<typ)
+			if ( num<typ )
 			{
 				//not full
 				num++;
@@ -57,17 +57,17 @@ public:
 			else
 			{
 				//full
-				pos=(pos+1)%num;
-				sum-=database[pos];
+				pos = (pos+1) % num;
+				sum -= database[pos];
 				database[pos] = data;
-				sum+=data;
+				sum += data;
 			}
 		}
 	}
-	
-	T getAvg(){ return sum/num; }
-	T getSum(){ return sum; }
-	int getNum(){ return num; }
+
+	T getAvg() { return sum/num; }
+	T getSum() { return sum; }
+	int getNum() { return num; }
 };
 
 }

@@ -1,5 +1,5 @@
 
-#include <tools/ext_math.hh>
+#include <tools/math.hh>
 #include <iostream>
 #include <fstream>
 using namespace std;

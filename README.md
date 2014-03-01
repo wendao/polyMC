@@ -15,3 +15,10 @@
 ## Clean release mode
     scons -c mode=release
 
+# Devel
+==============================
+There are four subsets:
+tools
+model
+sampler
+apps

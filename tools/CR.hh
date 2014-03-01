@@ -19,7 +19,7 @@ namespace tools
 class CR {
    public:
      Real x,y,z;
-     
+
      CR(void) {         // default is to create a 0 CR
        x = y = z = 0.0;
      }
@@ -199,14 +199,14 @@ class CR {
 #else
        int i=std::sscanf(s, "%lf%99[ \t,]%lf%99[ \t,]%lf%99s",
                     a, tmp, a+1, tmp, a+2, tmp);
-	   
+
 #endif
        if (i != 5) return 0;
        const char *t = s;       // now count commas (for "1,,,,2,  , 3")
        int flg = 0;                 // and check for "1 2,,3"
        i = 0;
        for (;*t;t++) {
-          if (*t == ',') { 
+          if (*t == ',') {
              if (flg == 0) {   // expecting non-whitespace
                 return 0;  //    so error
              }

@@ -3,7 +3,7 @@
 #include <model/ising.hh>
 #include <tools/CArray.hh>
 #include <tools/CReader.hh>
-#include <tools/ext_math.hh>
+#include <tools/math.hh>
 
 using namespace std;
 using namespace tools;
@@ -15,12 +15,12 @@ namespace model
 
 Ising::Ising() {
 	cout << "Ising model initializing ..." << endl;
-	
+
 	//init parameters
 	CReader par("ising.txt");
 	par.getval("nx",nx);
 	par.getval("ny",ny);
-	
+
 	spin.alloc( nx, ny );
 	nbr1.alloc( nx );
 	nbr2.alloc( ny );

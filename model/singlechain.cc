@@ -1,7 +1,7 @@
 
 #include <tools/CReader.hh>
 #include <model/singlechain.hh>
-#include <tools/ext_math.hh>
+#include <tools/math.hh>
 #include <cstdio>
 #include <cmath>
 
