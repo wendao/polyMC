@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/wendao/polyMC.svg?branch=master)](https://travis-ci.org/wendao/polyMC)
 
 ** PolyMC ** a simple Monte Carlo code for multiple models
 
